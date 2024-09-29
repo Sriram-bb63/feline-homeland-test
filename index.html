@@ -111,12 +111,12 @@
         fetch("https://api.ipify.org?format=json")
             .then(response => response.json())
             .then(data => {
-                var ip = "http://ip-api.com/json/" + data.ip
+                var ip = "https://ipapi.co/" + data.ip + "/json/"
                 fetch(ip).then(response => response.json()).then(data => {
-                    var city = data["country"]
+                    var country = data["country_name"]
                     document.getElementById("choice").style.display = 'none'
                     document.getElementById("result").style.display = 'block'
-                    document.getElementById("country").textContent = city
+                    document.getElementById("country").textContent = country
                     document.getElementById("footer").style.display = 'block'
                 })
             })
